@@ -26,10 +26,11 @@ export function CategoryFormDialog({ category }: { category?: Category }) {
   const [preview, setPreview] = useState<string | null>(category?.image ?? null);
 
   useEffect(() => {
-    if (!pending && !state.error && open) {
+    if (state === initialState) return;
+    if (!state.error) {
       setOpen(false);
     }
-  }, [pending, state.error, open]);
+  }, [state]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
