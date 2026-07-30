@@ -23,7 +23,7 @@ export function Footer() {
           </div>
           <p className="mt-3 max-w-xs text-sm text-white/80">{SITE_TAGLINE}</p>
           <p className="mt-3 max-w-xs text-sm text-white/70">
-            Handcrafted gold and diamond jewellery, curated for every celebration.
+            Handcrafted artificial jewellery, curated for every celebration.
           </p>
         </div>
 

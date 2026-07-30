@@ -15,7 +15,7 @@ export function AboutSection() {
       <Sparkles className="mx-auto size-8 text-primary" />
       <h3 className="mt-4 font-heading text-2xl font-bold text-foreground">About {SITE_NAME}</h3>
       <p className="mt-4 text-muted-foreground">
-        {SITE_NAME} is a family-run jewellery house bringing you thoughtfully handcrafted gold and diamond
+        {SITE_NAME} is a family-run jewellery house bringing you thoughtfully handcrafted artificial
         pieces. Every design blends timeless tradition with modern elegance, so you can find the perfect
         piece for weddings, festivals, or everyday shine. We believe in honest pricing, quality craftsmanship,
         and personal service — chat with us directly on WhatsApp for any piece you love.

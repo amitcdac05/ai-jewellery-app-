@@ -66,6 +66,7 @@ function readProductFields(formData: FormData) {
     isFeatured: formData.get("isFeatured") === "on",
     isNewArrival: formData.get("isNewArrival") === "on",
     isTrending: formData.get("isTrending") === "on",
+    hidePrice: formData.get("hidePrice") === "on",
   };
 }
 
@@ -111,6 +112,7 @@ export async function createProductAction(
       isFeatured: fields.isFeatured,
       isNewArrival: fields.isNewArrival,
       isTrending: fields.isTrending,
+      hidePrice: fields.hidePrice,
       images: {
         create: uploaded.map((img, index) => ({ url: img.url, publicId: img.publicId, order: index })),
       },
@@ -175,6 +177,7 @@ export async function updateProductAction(
       isFeatured: fields.isFeatured,
       isNewArrival: fields.isNewArrival,
       isTrending: fields.isTrending,
+      hidePrice: fields.hidePrice,
       images: {
         create: uploaded.map((img, index) => ({
           url: img.url,

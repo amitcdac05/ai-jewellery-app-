@@ -11,6 +11,7 @@ export interface ProductCardData {
   name: string;
   price: number;
   offerPrice: number | null;
+  hidePrice: boolean;
   inStock: boolean;
   category: { name: string; slug: string };
   images: { url: string }[];
@@ -72,11 +73,17 @@ export function ProductCard({ product, className }: { product: ProductCardData; 
             </h3>
           </Link>
           <div className="mt-1.5 flex items-baseline gap-2">
-            <span className="text-lg font-bold text-gradient-gold">
-              {formatINR(hasOffer ? (product.offerPrice as number) : product.price)}
-            </span>
-            {hasOffer && (
-              <span className="text-sm text-muted-foreground line-through">{formatINR(product.price)}</span>
+            {product.hidePrice ? (
+              <span className="text-lg font-bold text-gradient-gold">Contact for Price</span>
+            ) : (
+              <>
+                <span className="text-lg font-bold text-gradient-gold">
+                  {formatINR(hasOffer ? (product.offerPrice as number) : product.price)}
+                </span>
+                {hasOffer && (
+                  <span className="text-sm text-muted-foreground line-through">{formatINR(product.price)}</span>
+                )}
+              </>
             )}
           </div>
         </div>
@@ -91,7 +98,10 @@ export function ProductCard({ product, className }: { product: ProductCardData; 
             nativeButton={false}
             render={
               <a
-                href={buildWhatsAppUrl({ name: product.name, price: hasOffer ? (product.offerPrice as number) : product.price })}
+                href={buildWhatsAppUrl({
+                  name: product.name,
+                  price: product.hidePrice ? undefined : hasOffer ? (product.offerPrice as number) : product.price,
+                })}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Inquire about ${product.name} on WhatsApp`}

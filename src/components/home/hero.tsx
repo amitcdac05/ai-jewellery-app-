@@ -1,14 +1,27 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 
+const HERO_IMAGE =
+  "https://res.cloudinary.com/xwt5uill/image/upload/v1785445704/ai-jewellery/products/bwgbr6ectfaoynfx5xxn.jpg";
+
 export function Hero() {
   return (
     <section className="bg-luxury-radial relative overflow-hidden text-white">
+      <Image
+        src={HERO_IMAGE}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div className="bg-luxury-gradient absolute inset-0 opacity-50" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_10%,white_0%,transparent_30%)] opacity-10" />
       <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
         <motion.div
@@ -45,7 +58,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="max-w-lg text-sm text-white/70"
         >
-          Explore our curated collection of gold and diamond jewellery — rings, necklaces, earrings and
+          Explore our curated collection of artificial jewellery — rings, necklaces, earrings and
           bangles crafted for every occasion.
         </motion.p>
 

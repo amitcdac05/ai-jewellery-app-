@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "All Products",
-  description: "Browse our full collection of gold and diamond jewellery.",
+  description: "Browse our full collection of artificial jewellery.",
 };
 
 interface ProductsPageProps {

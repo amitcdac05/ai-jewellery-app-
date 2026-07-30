@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Gem, LayoutDashboard, FolderTree, Package, LogOut } from "lucide-react";
+import { Gem, LayoutDashboard, FolderTree, Package, QrCode, LogOut } from "lucide-react";
 import { logoutAction } from "@/actions/auth";
 
 const NAV_ITEMS = [
   { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/categories", label: "Categories", icon: FolderTree },
   { href: "/admin/products", label: "Products", icon: Package },
+  { href: "/admin/scan", label: "Scan Site", icon: QrCode },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
