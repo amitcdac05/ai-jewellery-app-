@@ -26,6 +26,7 @@ type Product = {
   description: string | null;
   price: number;
   offerPrice: number | null;
+  hidePrice: boolean;
   material: string | null;
   color: string | null;
   productCode: string;
@@ -127,6 +128,10 @@ export function ProductForm({ categories, product }: { categories: Category[]; p
         <label className="flex items-center gap-2">
           <Switch name="isTrending" defaultChecked={product?.isTrending} />
           <span className="text-sm font-medium">Trending</span>
+        </label>
+        <label className="flex items-center gap-2">
+          <Switch name="hidePrice" defaultChecked={product?.hidePrice} />
+          <span className="text-sm font-medium">Hide Price (Contact for Price)</span>
         </label>
       </div>
 

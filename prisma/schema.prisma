@@ -33,6 +33,7 @@ model Product {
   description   String?
   price         Float
   offerPrice    Float?
+  hidePrice     Boolean  @default(false)
   material      String?
   color         String?
   productCode   String   @unique

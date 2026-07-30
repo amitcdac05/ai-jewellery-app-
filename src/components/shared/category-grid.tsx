@@ -31,7 +31,7 @@ export function CategoryGrid({
           href={`/categories/${category.slug}`}
           className="card-luxury group flex flex-col items-center gap-3 p-5 text-center"
         >
-          <div className="relative flex size-20 items-center justify-center overflow-hidden rounded-2xl bg-luxury-gradient sm:size-24">
+          <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-luxury-gradient">
             {category.image ? (
               <Image src={category.image} alt={category.name} fill className="object-cover" />
             ) : (

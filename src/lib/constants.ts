@@ -1,7 +1,7 @@
 export const SITE_NAME = "AI Jewellery";
 export const SITE_TAGLINE = "Shine with Elegance";
 export const SITE_DESCRIPTION =
-  "Discover handcrafted gold and diamond jewellery collections at AI Jewellery. Browse rings, necklaces, earrings and bangles, and inquire directly on WhatsApp.";
+  "Discover handcrafted artificial jewellery collections at AI Jewellery. Browse rings, necklaces, earrings and bangles, and inquire directly on WhatsApp.";
 
 export const WHATSAPP_NUMBER = "919770603235";
 export const WHATSAPP_DISPLAY_NUMBER = "9770603235";

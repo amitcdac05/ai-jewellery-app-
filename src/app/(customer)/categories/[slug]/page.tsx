@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   return {
     title: category.name,
-    description: `Browse our ${category.name} collection - handcrafted gold and diamond jewellery.`,
+    description: `Browse our ${category.name} collection - handcrafted artificial jewellery.`,
   };
 }
 

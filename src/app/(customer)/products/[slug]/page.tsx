@@ -35,7 +35,9 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const image = product.images[0]?.url;
   const description =
     product.description ??
-    `${product.name} - ${product.category.name} jewellery from AI Jewellery. Priced at ${formatINR(product.offerPrice ?? product.price)}.`;
+    (product.hidePrice
+      ? `${product.name} - ${product.category.name} jewellery from AI Jewellery. Contact us for pricing.`
+      : `${product.name} - ${product.category.name} jewellery from AI Jewellery. Priced at ${formatINR(product.offerPrice ?? product.price)}.`);
 
   return {
     title: product.name,
@@ -63,7 +65,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     : 0;
   const whatsappUrl = buildWhatsAppUrl({
     name: product.name,
-    price: hasOffer ? (product.offerPrice as number) : product.price,
+    price: product.hidePrice ? undefined : hasOffer ? (product.offerPrice as number) : product.price,
   });
 
   return (
@@ -89,13 +91,19 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           </div>
 
           <div className="flex items-baseline gap-3">
-            <span className="text-3xl font-bold text-gradient-gold">
-              {formatINR(hasOffer ? (product.offerPrice as number) : product.price)}
-            </span>
-            {hasOffer && (
+            {product.hidePrice ? (
+              <span className="text-3xl font-bold text-gradient-gold">Contact for Price</span>
+            ) : (
               <>
-                <span className="text-lg text-muted-foreground line-through">{formatINR(product.price)}</span>
-                <Badge variant="destructive">{discountPercent}% OFF</Badge>
+                <span className="text-3xl font-bold text-gradient-gold">
+                  {formatINR(hasOffer ? (product.offerPrice as number) : product.price)}
+                </span>
+                {hasOffer && (
+                  <>
+                    <span className="text-lg text-muted-foreground line-through">{formatINR(product.price)}</span>
+                    <Badge variant="destructive">{discountPercent}% OFF</Badge>
+                  </>
+                )}
               </>
             )}
           </div>
