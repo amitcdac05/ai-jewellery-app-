@@ -12,16 +12,18 @@ import {
   getFeaturedProducts,
   getNewArrivals,
   getTrendingProducts,
+  getProductsByCategorySlugLimited,
 } from "@/services/product-queries";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [featured, newArrivals, trending, categories] = await Promise.all([
+  const [featured, newArrivals, trending, categories, korean] = await Promise.all([
     getFeaturedProducts(),
     getNewArrivals(),
     getTrendingProducts(),
     getActiveCategories(),
+    getProductsByCategorySlugLimited("korean-jewellery"),
   ]);
 
   return (
@@ -80,6 +82,20 @@ export default async function HomePage() {
           <FadeIn delay={0.1} className="mt-10">
             <CategoryGrid categories={categories} emptyMessage="No categories yet. Check back soon." />
           </FadeIn>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <FadeIn>
+          <SectionHeading eyebrow="Trendy Picks" title="Korean Jewellery" description="Dainty, minimal designs inspired by Korean style." />
+        </FadeIn>
+        <FadeIn delay={0.1} className="mt-10">
+          <ProductGrid products={korean} emptyMessage="No Korean jewellery yet. Check back soon." />
+        </FadeIn>
+        <div className="mt-8 flex justify-center">
+          <Link href="/categories/korean-jewellery" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+            View all Korean jewellery <ArrowRight className="size-4" />
+          </Link>
         </div>
       </section>
 

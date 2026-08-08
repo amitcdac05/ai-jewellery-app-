@@ -35,6 +35,15 @@ export function getTrendingProducts(limit = 8) {
   });
 }
 
+export function getProductsByCategorySlugLimited(categorySlug: string, limit = 8) {
+  return prisma.product.findMany({
+    where: { isHidden: false, category: { slug: categorySlug } },
+    include: listInclude,
+    orderBy: { createdAt: "desc" },
+    take: limit,
+  });
+}
+
 export interface ProductFilters {
   categorySlug?: string;
   minPrice?: number;
