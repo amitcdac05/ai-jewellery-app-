@@ -18,12 +18,13 @@ import {
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [featured, newArrivals, trending, categories, korean] = await Promise.all([
+  const [featured, newArrivals, trending, categories, korean, kashmiri] = await Promise.all([
     getFeaturedProducts(),
     getNewArrivals(),
     getTrendingProducts(),
     getActiveCategories(),
     getProductsByCategorySlugLimited("korean-jewellery"),
+    getProductsByCategorySlugLimited("kashmiri-jewellery"),
   ]);
 
   return (
@@ -96,6 +97,22 @@ export default async function HomePage() {
           <Link href="/categories/korean-jewellery" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
             View all Korean jewellery <ArrowRight className="size-4" />
           </Link>
+        </div>
+      </section>
+
+      <section className="bg-muted/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <SectionHeading eyebrow="Traditional Craft" title="Kashmiri Jewellery" description="Ornate oxidized-gold jhumkas inspired by Kashmiri heritage." />
+          </FadeIn>
+          <FadeIn delay={0.1} className="mt-10">
+            <ProductGrid products={kashmiri} emptyMessage="No Kashmiri jewellery yet. Check back soon." />
+          </FadeIn>
+          <div className="mt-8 flex justify-center">
+            <Link href="/categories/kashmiri-jewellery" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+              View all Kashmiri jewellery <ArrowRight className="size-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
