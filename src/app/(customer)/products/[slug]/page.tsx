@@ -66,6 +66,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const whatsappUrl = buildWhatsAppUrl({
     name: product.name,
     price: product.hidePrice ? undefined : hasOffer ? (product.offerPrice as number) : product.price,
+    imageUrl: product.images[0]?.url,
   });
 
   return (

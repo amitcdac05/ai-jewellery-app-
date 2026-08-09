@@ -101,6 +101,7 @@ export function ProductCard({ product, className }: { product: ProductCardData; 
                 href={buildWhatsAppUrl({
                   name: product.name,
                   price: product.hidePrice ? undefined : hasOffer ? (product.offerPrice as number) : product.price,
+                  imageUrl: image,
                 })}
                 target="_blank"
                 rel="noopener noreferrer"
